@@ -149,4 +149,3 @@ Status progression in mock:
 - `0–3s` → `pending`
 - `3–8s` → `processing`
 - `>8s`  → `completed`
-# withdraw-app
