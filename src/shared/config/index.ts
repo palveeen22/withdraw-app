@@ -1,4 +1,4 @@
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? '/api';
+export const API_BASE_URL = '/api';
 
 export const WITHDRAWAL_CACHE_KEY = 'last_withdrawal';
 export const WITHDRAWAL_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
