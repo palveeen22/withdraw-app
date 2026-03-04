@@ -30,7 +30,7 @@ export const WithdrawalCard = memo(function WithdrawalCard({
           style={{ fontFamily: 'var(--font-syne)' }}>
           Amount Withdrawn
         </p>
-        <div className="flex items-baseline gap-3">
+        <div className="flex items-baseline gap-3 flex-wrap">
           <span className="text-5xl font-bold text-amber-400 tabular-nums"
             style={{ fontFamily: 'var(--font-syne)' }}>
             {withdrawal.amount.toFixed(2)}
