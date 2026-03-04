@@ -4,7 +4,7 @@ import { memo, useEffect } from 'react';
 import { CheckCircle2, Shield, Zap, Clock } from 'lucide-react';
 
 import { WithdrawForm } from '@/features/withdraw-form';
-import { useWithdrawStore } from '@/features/withdraw-form';
+import { useWithdrawStore, useWithdrawPolling } from '@/features/withdraw-form';
 import { WithdrawalCard } from '@/entities/withdrawal';
 import { Button } from '@/shared/ui/components/button';
 import { Separator } from '@/shared/ui/components/separator';
@@ -13,8 +13,10 @@ import { WITHDRAWAL_CACHE_KEY } from '@/shared/config';
 import type { Withdrawal } from '@/entities/withdrawal';
 
 export const WithdrawPage = memo(function WithdrawPage() {
-  const { status, withdrawal, pollStatus, reset, setSuccess, startPolling } =
+  const { status, withdrawal, pollStatus, reset, setSuccess } =
     useWithdrawStore();
+
+  useWithdrawPolling();
 
   // Restore last withdrawal from sessionStorage on mount (5-min TTL)
   useEffect(() => {
@@ -29,9 +31,9 @@ export const WithdrawPage = memo(function WithdrawPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#09090b] relative" style={{ fontFamily: 'var(--font-mono)' }}>
+    <div className="min-h-screen bg-zinc-950 relative" style={{ fontFamily: 'var(--font-mono)' }}>
       {/* Amber top accent line */}
-      <div className="fixed top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-400/60 to-transparent z-50" />
+      <div className="fixed top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-amber-400/60 to-transparent z-50" />
 
       {/* Subtle grid */}
       <div
@@ -58,7 +60,7 @@ export const WithdrawPage = memo(function WithdrawPage() {
         }}
       />
 
-      <main className="relative z-10 mx-auto max-w-[480px] px-4 py-16 md:py-24">
+      <main className="relative z-10 mx-auto max-w-120 px-4 py-16 md:py-24">
         {/* Top nav */}
         <div className="mb-12 flex items-center justify-between">
           <div className="flex items-center gap-2">

@@ -16,8 +16,12 @@ export const withdrawalByIdempotencyKey = new Map<string, Withdrawal>();
 export function progressStatus(withdrawal: Withdrawal): Withdrawal {
   const ageMs = Date.now() - new Date(withdrawal.createdAt).getTime();
   let status = withdrawal.status;
-  // pending → processing after 3s, processing → completed after 8s
-  if (ageMs > 8_000) status = 'completed';
-  else if (ageMs > 3_000) status = 'processing';
+  // Thresholds sit above POLL_INTERVAL_MS (3s) so each transition
+  // is visible for at least one full poll cycle:
+  //   poll 1 (t≈3s)  → pending
+  //   poll 2 (t≈6s)  → processing
+  //   poll 4 (t≈12s) → completed
+  if (ageMs > 10_000) status = 'completed';
+  else if (ageMs > 4_000) status = 'processing';
   return { ...withdrawal, status };
 }
