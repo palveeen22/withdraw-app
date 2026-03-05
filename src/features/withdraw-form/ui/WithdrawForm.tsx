@@ -5,16 +5,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { memo, useEffect } from 'react';
 import { Loader2, AlertTriangle, ArrowRight, RotateCcw } from 'lucide-react';
 
-import { Button } from '@/shared/ui/components/button';
-import { Input } from '@/shared/ui/components/input';
-import { Label } from '@/shared/ui/components/label';
-import { Checkbox } from '@/shared/ui/components/checkbox';
-import { Separator } from '@/shared/ui/components/separator';
 
 import { withdrawSchema, type WithdrawFormValues } from '../model/schema';
 import { useWithdrawStore } from '../model/withdrawStore';
 import { useWithdrawSubmit } from '../model/useWithdrawSubmit';
 import { CURRENCY } from '@/shared/config';
+import { Button, Checkbox, Input, Label, Separator } from '@/shared/ui';
 
 export const WithdrawForm = memo(function WithdrawForm() {
   const { status, error, reset } = useWithdrawStore();

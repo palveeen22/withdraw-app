@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { AlertTriangle, RotateCcw } from 'lucide-react';
-import { Button } from '@/shared/ui/components/button';
+import { Button } from '@/shared/ui';
 
 interface ErrorPageProps {
   error: Error & { digest?: string };

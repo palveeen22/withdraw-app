@@ -6,9 +6,9 @@ import { CheckCircle2, Shield, Zap, Clock } from 'lucide-react';
 import { WithdrawForm } from '@/features/withdraw-form';
 import { useWithdrawStore, useWithdrawPolling } from '@/features/withdraw-form';
 import { WithdrawalCard } from '@/entities/withdrawal';
-import { Button } from '@/shared/ui/components/button';
-import { Separator } from '@/shared/ui/components/separator';
-import { getCache } from '@/shared/lib/cache';
+import { Button } from '@/shared/ui';
+import { Separator } from '@/shared/ui';
+import { getCache } from '@/shared/lib';
 import { WITHDRAWAL_CACHE_KEY } from '@/shared/config';
 import type { Withdrawal } from '@/entities/withdrawal';
 

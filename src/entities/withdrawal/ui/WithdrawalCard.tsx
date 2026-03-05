@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 import { RefreshCw, CheckCircle2, XCircle, Clock } from 'lucide-react';
-import { Separator } from '@/shared/ui/components/separator';
+import { Separator } from '@/shared/ui';
 import { StatusBadge } from './StatusBadge';
 import { CURRENCY } from '@/shared/config';
 import type { Withdrawal } from '../model/types';

@@ -1,6 +1,6 @@
 'use client';
 
-import { Badge } from '@/shared/ui/components/badge';
+import { Badge } from '@/shared/ui';
 import type { WithdrawalStatus } from '../model/types';
 
 const STATUS_MAP: Record<WithdrawalStatus, { variant: 'pending' | 'processing' | 'completed' | 'failed'; dot: string }> = {
